@@ -1,0 +1,31 @@
+/// @description Insert description here
+// You can write your code in this editor
+if(instance_exists(player))
+{
+	if(!stood)
+	{
+		y-=(y-ystart)/10
+		if(place_meeting(x,y-1,player))
+		{
+			player.y=bbox_top-(point_distance(player.x,player.bbox_bottom,x,bbox_top))
+			if(alarm[1]>1)
+			{
+				player.vsp=-25
+				player.y-=64
+			}
+		}
+	}
+	if(place_meeting(x,y-1,player)&&!stood&&alarm[1]<=1)
+	{
+		alarm[0]=30
+		stood=true
+	}
+	if(stood)
+	{
+		y+=3
+	}
+	if(place_meeting(x,y-1,player))
+	{
+		player.hsp*=0.1
+	}
+}

@@ -1,0 +1,33 @@
+/// @description Insert description here
+// You can write your code in this editor
+if(!popped&&image_index>=8)
+{
+if(player.iy[2]>0)
+{
+	if(sign(player.hsp)==0)
+	{
+		player.vsp=-player.vsp
+	}
+	player.hsp=-player.hsp
+	player.iy[2]*=4
+}
+else
+{
+	player.vsp=-player.jsp*sign(player.grav)
+}
+player.dashedtimes=1
+player.candash=true
+if(other.iy[3]<120)
+{
+	other.iy[3]=120
+}
+popped=true
+sprite_index=bubblereform
+image_index=0
+	if(homing)
+	{
+		inst=instance_create_depth(x,y,0,effect)
+		inst.sprite_index=bubblereform
+		instance_destroy()
+	}
+}
